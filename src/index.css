@@ -1,0 +1,20 @@
+.logo {
+  color: #343a40;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-link {
+  color: #343a40;
+  opacity:0.7;
+  padding: 0.5rem;
+}
+
+.navbar-link__active, .navbar-link:hover{
+  text-decoration: none;
+  color:#343a40;
+  opacity: 1;
+}
