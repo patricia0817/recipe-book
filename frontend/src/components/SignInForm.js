@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 
 function SignInForm() {
   return (
-    <Form className="signin-form col-xs-12 col-lg-6 col-lg-offset-3">
+    <Form className="signin-form col-xs-12 col-lg-6 offset-lg-3">
       <Form.Group controlId='formBasicEmail'>
         <Form.Label>Email address</Form.Label>
         <Form.Control type='email' placeholder='Enter email' />

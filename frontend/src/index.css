@@ -19,13 +19,13 @@
   opacity: 1;
 }
 
-.content-container, .content-container__small {
+.content-container {
   margin-top: 12rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 5rem;
 }
 
 @media (min-height: 768px) {
-  .content-container, .content-container__small {
+  .content-container {
     margin-top: 10rem;
   }
 }
@@ -73,4 +73,32 @@
   background-position: center;
   background-size: cover;
   color: white;
+}
+
+.review-home-card-container {
+  display: flex;
+}
+
+.review-home-card-image img {
+  border: none
+}
+
+.review-home-card-date {
+  opacity: 0.6;
+  font-size: 0.7rem;
+}
+
+.review-home-card-title {
+  color: #343a40;
+}
+
+.review-home-card-title:hover {
+  color: #343a40;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.review-home-card-comments {
+  opacity: 0.6;
+  font-size: 0.8rem;
 }

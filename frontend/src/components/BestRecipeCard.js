@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
+import Rating from './Rating'
 
 function BigRecipeCard() {
   return (
@@ -11,12 +12,7 @@ function BigRecipeCard() {
           <NavLink className="best-recipe-card__title" to='/recipes/:id'>Egg Salad</NavLink>
         </Card.Title>
         <Card.Text>
-          <div className="best-recipe-card-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <i class="far fa-star"></i>
-          </div>
+          <Rating />
         </Card.Text>
       </Card.Body>
     </Card>
