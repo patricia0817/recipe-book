@@ -18,3 +18,15 @@
   color:#343a40;
   opacity: 1;
 }
+
+.content-container, .content-container__small {
+  margin-top: 12rem;
+  display: flex;
+    justify-content: space-around;
+}
+
+@media (min-height: 768px) {
+  .content-container, .content-container__small {
+    margin-top: 10rem;
+  }
+}
