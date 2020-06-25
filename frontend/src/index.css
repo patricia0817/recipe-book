@@ -21,12 +21,56 @@
 
 .content-container, .content-container__small {
   margin-top: 12rem;
-  display: flex;
-    justify-content: space-around;
+  margin-bottom: 3.5rem;
 }
 
 @media (min-height: 768px) {
   .content-container, .content-container__small {
     margin-top: 10rem;
   }
+}
+
+.hero-container img {
+  height: 500px;
+}
+
+.hero-card-container {
+  opacity: 0.7;
+  color: #343a40;
+}
+
+.signin-button:focus {
+  box-shadow: none;
+}
+
+.signin-container__header {
+  background-color: transparent;
+}
+
+.best-recipes-container .card {
+  display: inline-block;
+}
+
+.best-recipe-card__title {
+  color: #343a40;
+  opacity: 0.7;
+}
+
+.best-recipe-card__title:hover {
+  text-decoration: none;
+  color: #343a40;
+  opacity: 1;
+}
+
+.best-recipe-card-rating {
+  color: #ffc107;
+}
+
+.discover-all-recipes-container {
+  padding: 5rem;
+  background:linear-gradient(rgba(92, 92, 92, 0.5), rgba(173, 173, 169, 0.5)), url('https://images.pexels.com/photos/3771814/pexels-photo-3771814.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
 }

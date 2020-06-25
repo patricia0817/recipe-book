@@ -2,13 +2,17 @@ import React, { useEffect } from 'react'
 import { Jumbotron, Container } from 'react-bootstrap'
 import Page from './Page'
 import Hero from './Hero'
-import SignInForm from './SignInForm'
+import SignInContainer from './SignInContainer'
+import BestRecipesGallery from './BestRecipesGallery'
+import DiscoverAllRecipes from './DiscoverAllRecipes'
 
 function HomeGuest() {
   return (
     <Page>
-      <Hero isSmall />
-      <SignInForm />
+      <Hero />
+      <SignInContainer />
+      <BestRecipesGallery />
+      <DiscoverAllRecipes />
     </Page>
   )
 }

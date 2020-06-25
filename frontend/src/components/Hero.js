@@ -1,17 +1,43 @@
 import React, { useEffect } from 'react'
-import { Jumbotron, Container } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
+import HeroCard from './HeroCard'
 
 function Hero( props ) {
   return (
-    <Jumbotron fluid className={ `py-5 hero-container  ${ props.isSmall && 'col-xs-12 col-lg-5' }` }>
-      <Container>
-        <h1>Fluid jumbotron</h1>
-        <p>
-          This is a modified jumbotron that occupies the entire horizontal space of
-          its parent.
-          </p>
-      </Container>
-    </Jumbotron >
+    <Carousel className="hero-container">
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://images.pexels.com/photos/406152/pexels-photo-406152.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <HeroCard />
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <HeroCard />
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <HeroCard />
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
   )
 }
 
