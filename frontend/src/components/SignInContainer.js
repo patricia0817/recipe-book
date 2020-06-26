@@ -4,7 +4,7 @@ import SignInForm from './SignInForm'
 
 function SignInContainer() {
   return (
-    <Accordion className="signin-container text-center" defaultActiveKey="0">
+    <Accordion className="signin-container text-center" defaultActiveKey="1">
       <Card>
         <Card.Header className="signin-container__header">
           <Accordion.Toggle as={ Button } variant="link" eventKey="0">
