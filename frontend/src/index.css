@@ -21,7 +21,7 @@
 
 .content-container {
   margin-top: 12rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-height: 768px) {
@@ -76,11 +76,15 @@
 }
 
 .review-home-card-container {
-  display: flex;
+  display: inline-block;
 }
 
-.review-home-card-image img {
-  border: none
+.review-home-card-thumbnail {
+  height: 100px;
+  width: 100px;
+  background: url("https://images.pexels.com/photos/3662104/pexels-photo-3662104.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-size: cover;
+  background-position: center;
 }
 
 .review-home-card-date {
@@ -90,6 +94,7 @@
 
 .review-home-card-title {
   color: #343a40;
+  margin-bottom: 0.5rem;
 }
 
 .review-home-card-title:hover {
@@ -98,7 +103,17 @@
   text-decoration: none;
 }
 
+.review-home-card-rating {
+  margin-bottom: 0.5rem;
+}
+
 .review-home-card-comments {
   opacity: 0.6;
   font-size: 0.8rem;
+  color: #343a40;
+}
+
+.review-home-card-comments {
+  color: #343a40;
+  text-decoration: none;
 }
