@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Navbar, Nav, Form, FormControl, InputGroup, Button } from 'react-bootstrap'
+import { Navbar, Nav, Button } from 'react-bootstrap'
+import HeaderLoggedOut from './HeaderLoggedOut'
+import HeaderLoggedIn from './HeaderLoggedIn'
 
 function Header() {
+  const [ loggedIn, setLoggedIn ] = useState()
+
   return (
     <Navbar fixed="top" bg="light" expand="lg">
       <Navbar.Brand href="#home">
@@ -21,28 +25,7 @@ function Header() {
           <Button variant="outline-warning">View All Categories</Button>
         </Nav>
       </Navbar.Collapse>
-      <Form className="login-form" inline>
-        <InputGroup className="login-form__input py-1">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
-        <InputGroup className="login-form__input py-1">
-          <FormControl
-            placeholder="Password"
-            aria-label="Password"
-            type="password"
-          />
-        </InputGroup>
-        <InputGroup className="login-form__submit py-1">
-          <Button variant="dark">Login</Button>{ " " }
-        </InputGroup>
-      </Form>
+      { loggedIn ? <HeaderLoggedIn setLoggedIn={ setLoggedIn } /> : <HeaderLoggedOut setLoggedIn={ setLoggedIn } /> }
     </Navbar>
   )
 }

@@ -21,7 +21,7 @@ function SignInForm() {
   }
 
   return (
-    <Form onSubmit={ e => handleSubmit( e ) } className="signin-form col-xs-12 col-lg-6 offset-lg-3">
+    <Form onSubmit={ handleSubmit } className="signin-form col-xs-12 col-lg-6 offset-lg-3">
       <Form.Group controlId='formRetypeBasicPassword'>
         <Form.Label>Name</Form.Label>
         <Form.Control onChange={ e => setUsername( e.target.value ) } type='text' placeholder='Enter name' value={ username } />

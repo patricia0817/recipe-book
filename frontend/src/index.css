@@ -19,12 +19,16 @@
   opacity: 1;
 }
 
+.sign-out-button {
+  margin-left: 1rem;
+}
+
 .content-container {
   margin-top: 12rem;
   margin-bottom: 2rem;
 }
 
-@media (min-height: 768px) {
+@media (min-height: 768px) and (min-width: 1366px) {
   .content-container {
     margin-top: 10rem;
   }
