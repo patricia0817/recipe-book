@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState, useContext } from 'react'
+import { NavLink, Link } from 'react-router-dom'
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import HeaderLoggedOut from './HeaderLoggedOut'
 import HeaderLoggedIn from './HeaderLoggedIn'
+import StateContext from '../StateContext'
 
 function Header() {
-  const [ loggedIn, setLoggedIn ] = useState()
+  const appState = useContext( StateContext )
 
   return (
     <Navbar fixed="top" bg="light" expand="lg">
@@ -25,7 +26,7 @@ function Header() {
           <Button variant="outline-warning">View All Categories</Button>
         </Nav>
       </Navbar.Collapse>
-      { loggedIn ? <HeaderLoggedIn setLoggedIn={ setLoggedIn } /> : <HeaderLoggedOut setLoggedIn={ setLoggedIn } /> }
+      { appState.loggedIn ? <HeaderLoggedIn /> : <HeaderLoggedOut /> }
     </Navbar>
   )
 }

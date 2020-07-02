@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap'
 import Axios from 'axios'
+import StateContext from '../StateContext'
+import DispatchContext from '../DispatchContext'
 
-function HeaderLoggedOut( props ) {
+function HeaderLoggedOut() {
+  const appState = useContext( StateContext )
+  const appDispatch = useContext( DispatchContext )
   const [ email, setEmail ] = useState()
   const [ password, setPassword ] = useState()
 
@@ -12,8 +16,10 @@ function HeaderLoggedOut( props ) {
     try {
       const response = await Axios.post( 'http://localhost:3000/login', { email, password } )
       if ( response.data ) {
-        console.log( response.data )
-        props.setLoggedIn( true )
+        localStorage.setItem( 'recipeBookToken', response.data.token )
+        localStorage.setItem( 'recipeBookEmail', response.data.email )
+        localStorage.setItem( 'recipeBookEmail', response.data.username )
+        appDispatch( { type: 'login' } )
       } else {
         console.log( 'Incorrect email / password.' )
       }

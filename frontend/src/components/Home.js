@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import Page from './Page'
 import Hero from './Hero'
 import SignInContainer from './SignInContainer'
 import BestRecipesGallery from './BestRecipesGallery'
 import DiscoverAllRecipes from './DiscoverAllRecipes'
 import ReviewsHomeContainer from './ReviewsHomeContainer'
+import StateContext from '../StateContext'
 
 
 function Home() {
+  const appState = useContext( StateContext )
+
   return (
     <Page>
       <Hero />
-      <SignInContainer />
+      { !appState.loggedIn && <SignInContainer /> }
       <BestRecipesGallery />
       <DiscoverAllRecipes />
       <ReviewsHomeContainer />
