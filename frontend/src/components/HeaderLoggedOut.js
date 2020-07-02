@@ -7,8 +7,8 @@ import DispatchContext from '../DispatchContext'
 function HeaderLoggedOut() {
   const appState = useContext( StateContext )
   const appDispatch = useContext( DispatchContext )
-  const [ email, setEmail ] = useState()
-  const [ password, setPassword ] = useState()
+  const [ email, setEmail ] = useState( '' )
+  const [ password, setPassword ] = useState( '' )
 
   async function handleSubmit( e ) {
     e.preventDefault()
@@ -17,9 +17,9 @@ function HeaderLoggedOut() {
       const response = await Axios.post( 'http://localhost:3000/login', { email, password } )
       if ( response.data ) {
         localStorage.setItem( 'recipeBookToken', response.data.token )
-        localStorage.setItem( 'recipeBookEmail', response.data.email )
-        localStorage.setItem( 'recipeBookEmail', response.data.username )
-        appDispatch( { type: 'login' } )
+        localStorage.setItem( 'recipeBookEmail', response.data.user.email )
+        localStorage.setItem( 'recipeBookUsername', response.data.user.username )
+        appDispatch( { type: 'login', data: response.data } )
       } else {
         console.log( 'Incorrect email / password.' )
       }
@@ -31,7 +31,7 @@ function HeaderLoggedOut() {
   }
 
   return (
-    <Form onSubmit={ handleSubmit } className="login-form px-3 text-right" inline>
+    <Form onSubmit={ handleSubmit } className="login-form pr-3 px-3 text-right" inline>
       <InputGroup className="login-form__input py-1">
         <FormControl
           onChange={ e => setEmail( e.target.value ) }

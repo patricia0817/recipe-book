@@ -3,9 +3,9 @@ import { Form, Button } from 'react-bootstrap'
 import Axios from 'axios'
 
 function SignInForm() {
-  const [ username, setUsername ] = useState()
-  const [ email, setEmail ] = useState()
-  const [ password, setPassword ] = useState()
+  const [ username, setUsername ] = useState( '' )
+  const [ email, setEmail ] = useState( '' )
+  const [ password, setPassword ] = useState( '' )
 
   async function handleSubmit( e ) {
     e.preventDefault()

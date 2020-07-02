@@ -7,9 +7,7 @@ function SignInContainer() {
     <Accordion className="signin-container text-center" defaultActiveKey="1">
       <Card>
         <Card.Header className="signin-container__header">
-          <Accordion.Toggle as={ Button } variant="link" eventKey="0">
-            <Button className="signin-button" variant="outline-dark">Sign In</Button>
-          </Accordion.Toggle>
+          <Accordion.Toggle as={ Button } variant="outline-dark" eventKey="0" className="signin-button">Sign In</Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
           <Card.Body className='signin-container__body mt-2 text-left'>
