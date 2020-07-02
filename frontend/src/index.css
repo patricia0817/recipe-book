@@ -1,3 +1,25 @@
+.navigation-menu nav{
+  top: 70px;
+}
+
+.logged-in-controls, .login-form {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #343a40;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.login-form {
+  justify-content: flex-end;
+}
+
+.login-form div {
+  margin-left: 1rem
+}
+
 .logo {
   color: #343a40;
 }
@@ -19,7 +41,16 @@
   opacity: 1;
 }
 
-.sign-out-button {
+
+.my-profile-control {
+  color: #f8f9fa;
+}
+
+.add-recipe-control {
+  margin-left: 1rem;
+}
+
+.sign-out-control {
   margin-left: 1rem;
 }
 

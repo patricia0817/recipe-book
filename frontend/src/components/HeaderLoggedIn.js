@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import StateContext from '../StateContext'
 import DispatchContext from '../DispatchContext'
@@ -15,11 +16,10 @@ function HeaderLoggedIn() {
   }
 
   return (
-    <div className="row">
-      <div className="col-xs-12 col-md-12 logged-in-controls">
-        <Button variant="dark">Add Recipe</Button>
-        <Button onClick={ handleLogout } className="sign-out-button" variant="outline-dark">Sign Out</Button>
-      </div>
+    <div className="py-3 logged-in-controls text-right">
+      <NavLink to="/myProfile"><i className="fa fa-user my-profile-control"></i></NavLink>
+      <Button variant="light add-recipe-control">Add Recipe</Button>
+      <Button onClick={ handleLogout } className="sign-out-control" variant="outline-light">Sign Out</Button>
     </div>
   )
 }

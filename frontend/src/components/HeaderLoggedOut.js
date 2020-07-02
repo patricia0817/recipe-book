@@ -31,7 +31,7 @@ function HeaderLoggedOut() {
   }
 
   return (
-    <Form onSubmit={ handleSubmit } className="login-form" inline>
+    <Form onSubmit={ handleSubmit } className="login-form px-3 text-right" inline>
       <InputGroup className="login-form__input py-1">
         <FormControl
           onChange={ e => setEmail( e.target.value ) }
@@ -51,7 +51,7 @@ function HeaderLoggedOut() {
         />
       </InputGroup>
       <InputGroup className="login-form__submit py-1">
-        <Button type="submit" variant="dark">Login</Button>{ " " }
+        <Button type="submit" variant="outline-light">Login</Button>{ " " }
       </InputGroup>
     </Form>
   )
