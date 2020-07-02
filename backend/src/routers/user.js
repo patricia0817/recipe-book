@@ -24,20 +24,22 @@ router.post( '/login', async ( req, res ) => {
   }
 } )
 
+// router.post( '/logout', auth, async ( req, res ) => {
+//   try {
+//     req.user.tokens = req.user.tokens.filter( ( token ) => {
+//       return token.token !== req.token
+//     } )
+//     await req.user.save()
+
+//     res.send()
+//   } catch ( e ) {
+//     res.status( 500 ).send()
+//   }
+// } )
+
+// router.post( '/logoutAll', auth, async ( req, res ) => {
 router.post( '/logout', auth, async ( req, res ) => {
-  try {
-    req.user.tokens = req.user.tokens.filter( ( token ) => {
-      return token.token !== req.token
-    } )
-    await req.user.save()
-
-    res.send()
-  } catch ( e ) {
-    res.status( 500 ).send()
-  }
-} )
-
-router.post( '/logoutAll', auth, async ( req, res ) => {
+  console.log( req.body )
   try {
     req.user.tokens = []
     await req.user.save()

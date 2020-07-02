@@ -10,7 +10,9 @@ function HeaderLoggedIn() {
   const appDispatch = useContext( DispatchContext )
 
   async function handleLogout() {
-    // const response = await Axios.post( 'http://localhost:3000/logoutAll', { user: appState.user } );
+    const AUTH_TOKEN = appState.user.token
+    Axios.defaults.headers.common[ 'Authorization' ] = AUTH_TOKEN;
+    Axios.post( 'http://localhost:3000/logout' )
     localStorage.removeItem( 'recipeBookToken' )
     localStorage.removeItem( 'recipeBookEmail' )
     localStorage.removeItem( 'recipeBookUsername' )
