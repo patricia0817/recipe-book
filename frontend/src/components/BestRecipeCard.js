@@ -11,9 +11,7 @@ function BigRecipeCard() {
         <Card.Title>
           <NavLink className="best-recipe-card__title" to='/recipes/:id'>Egg Salad</NavLink>
         </Card.Title>
-        <Card.Text>
-          <Rating />
-        </Card.Text>
+        <Rating />
       </Card.Body>
     </Card>
   )
