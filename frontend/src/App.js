@@ -8,6 +8,7 @@ import { useImmerReducer } from 'use-immer'
 import Header from './components/Header'
 import Home from './components/Home'
 import Footer from './components/Footer'
+import AddRecipe from './components/AddRecipe';
 
 function App() {
   const initialState = {
@@ -33,17 +34,18 @@ function App() {
 
   const [ state, dispatch ] = useImmerReducer( appReducer, initialState )
 
-  useEffect( () => {
-    if ( state.loggedIn ) {
-      localStorage.setItem( 'recipeBookToken', state.user.token );
-      localStorage.setItem( 'recipeBookUsername', state.user.username );
-      localStorage.setItem( 'recipeBookEmail', state.user.email );
-    } else {
-      localStorage.removeItem( 'recipeBookToken' );
-      localStorage.removeItem( 'recipeBookUsername' );
-      localStorage.removeItem( 'recipeBookEmail' );
-    }
-  }, [ state.loggedIn ] )
+  // useEffect( () => {
+  //   console.log( state.loggedIn )
+  //   if ( state.loggedIn ) {
+  //     localStorage.setItem( 'recipeBookToken', state.user.token );
+  //     localStorage.setItem( 'recipeBookUsername', state.user.username );
+  //     localStorage.setItem( 'recipeBookEmail', state.user.email );
+  //   } else {
+  //     localStorage.removeItem( 'recipeBookToken' );
+  //     localStorage.removeItem( 'recipeBookUsername' );
+  //     localStorage.removeItem( 'recipeBookEmail' );
+  //   }
+  // }, [ state.loggedIn ] )
 
   return (
     <StateContext.Provider value={ state }>
@@ -53,6 +55,9 @@ function App() {
           <Switch Switch >
             <Route path='/' exact>
               <Home />
+            </Route>
+            <Route path='/addRecipe'>
+              <AddRecipe />
             </Route>
           </Switch>
           <Footer />

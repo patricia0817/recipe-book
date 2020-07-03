@@ -59,6 +59,10 @@
   margin-bottom: 2rem;
 }
 
+.add-recipe-form {
+  margin-bottom: 6rem;
+}
+
 @media (min-height: 768px) and (min-width: 1366px) {
   .content-container {
     margin-top: 10rem;

@@ -19,10 +19,14 @@ function HeaderLoggedIn() {
     appDispatch( { type: 'logout' } )
   }
 
+  function handleAddRecipe() {
+    console.log( 'Add recipe' )
+  }
+
   return (
     <div className="pr-3 py-3 logged-in-controls text-right">
       <NavLink to="/myProfile"><i className="fa fa-user my-profile-control"></i></NavLink>
-      <Button variant="light add-recipe-control">Add Recipe</Button>
+      <Button onClick={ handleAddRecipe } variant="light add-recipe-control">Add Recipe</Button>
       <Button onClick={ handleLogout } className="sign-out-control" variant="outline-light">Sign Out</Button>
     </div>
   )
