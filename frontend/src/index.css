@@ -50,6 +50,12 @@
   margin-left: 1rem;
 }
 
+.add-recipe-control:focus {
+  border: none;
+  background-color: #f8f9fa;
+  box-shadow: none;
+}
+
 .sign-out-control {
   margin-left: 1rem;
 }
@@ -155,4 +161,14 @@
 .review-home-card-comments {
   color: #343a40;
   text-decoration: none;
+}
+
+.ingredients-list-item {
+  display: flex;
+  justify-content: space-between;
+  border: none
+}
+
+.add-recipe-button {
+  float: right;
 }

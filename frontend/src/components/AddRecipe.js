@@ -1,37 +1,60 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Col, Button, ListGroup } from 'react-bootstrap'
 import Page from './Page'
+import IngredientsListItem from './IngredientsListItem'
 
 function AddRecipe() {
   const [ ingredients, setIngredients ] = useState( [] )
   const [ ingredient, setIngredient ] = useState( '' )
   const [ quantity, setQuantity ] = useState( '' )
   const [ units, setUnits ] = useState( '' )
+  const [ title, setTiltle ] = useState( '' )
+  const [ category, setCategory ] = useState( '' )
+  const [ calories, setCalories ] = useState( '' )
+  const [ time, setTime ] = useState( '' )
+  const [ instructions, setInstructions ] = useState( '' )
+
   function handleAddRecipe( e ) {
+    e.preventDefault()
+    const recipe = {
+      title,
+      category,
+      calories,
+      time,
+      ingredients,
+      instructions
+    }
+    console.log( recipe )
+  }
+
+  function handleAddIngredient( e ) {
     e.preventDefault();
-    console.log( ingredient )
-    console.log( quantity )
-    console.log( units )
     setIngredients( ingredients.concat( { ingredient, quantity, units } ) )
     setIngredient( '' )
     setQuantity( '' )
     setUnits( '' )
   }
 
-  console.log( ingredients )
+  function handleRemoveIngredient( ingredientId ) {
+    console.log( 'remove' )
+    const newIngredientsArray = ingredients.filter( ( item ) => item.id !== ingredientId )
+    setIngredients( newIngredientsArray )
+    console.log( ingredients )
+  }
+
   return (
     <Page>
       <div className="container">
-        <Form className='add-recipe-form col-xs-12 col-lg-8 offset-lg-2'>
+        <Form onSubmit={ handleAddRecipe } className='add-recipe-form col-xs-12 col-lg-8 offset-lg-2'>
           <Form.Group controlId="recipeTitle">
             <Form.Label>Title</Form.Label>
-            <Form.Control placeholder="Title" />
+            <Form.Control onChange={ e => setTiltle( e.target.value ) } placeholder="Title" />
           </Form.Group>
           <Form.Row>
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCategory">
                 <Form.Label>Category</Form.Label>
-                <Form.Control as="select" defaultValue="Category">
+                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" defaultValue="Category">
                   <option>Appetizers</option>
                   <option>Salads</option>
                   <option>Soups</option>
@@ -44,14 +67,14 @@ function AddRecipe() {
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCalories">
                 <Form.Label>Calories</Form.Label>
-                <Form.Control type="number" placeholder="Calories" />
+                <Form.Control onChange={ e => setCalories( e.target.value ) } type="number" placeholder="Calories" />
               </Form.Group>
             </Col>
 
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeTime">
                 <Form.Label>Time</Form.Label>
-                <Form.Control type="time" placeholder="Time" />
+                <Form.Control onChange={ e => setTime( e.target.value ) } type="time" placeholder="Time" />
               </Form.Group>
             </Col>
           </Form.Row>
@@ -81,34 +104,22 @@ function AddRecipe() {
                 </Form.Group>
               </Col>
             </Form.Row>
-            <Button onClick={ handleAddRecipe } variant="outline-dark" type="submit">
+            <Button onClick={ handleAddIngredient } variant="dark" type="submit">
               Add
             </Button>
           </Form.Group>
 
-          <ListGroup variant="flush">
-            <ListGroup.Item>
-              <span>Test hjgjhgsjhafgjdgfka</span>
-              <Button>remove</Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <span>Test hjgjhgsjhafgjdgfka</span>
-              <Button>remove</Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <span>Test hjgjhgsjhafgjdgfka</span>
-              <Button>remove</Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <span>Test hjgjhgsjhafgjdgfka</span>
-              <Button>remove</Button>
-            </ListGroup.Item>
+          <ListGroup className="ingredientsListItem" variant="flush">
+            { ingredients.map( ( ingredient, index ) => {
+              return < IngredientsListItem key={ index } handleRemoveIngredient={ handleRemoveIngredient } ingredient={ { ...ingredient, id: index } } />
+            } ) }
           </ListGroup>
 
-          <Form.Group>
-            <Form.Label>Instructions</Form.Label>
-            <textarea placeholder="Add Instructions"></textarea>
+          <Form.Group className="instructions-container">
+            <Form.Label className="instructions-label col-12 p-0">Instructions</Form.Label>
+            <textarea onChange={ e => setInstructions( e.target.value ) } className="instructions col-12" placeholder="Add Instructions"></textarea>
           </Form.Group>
+          <Button type="submit" variant="dark" className="add-recipe-button">Add Recipe</Button>
         </Form>
       </div>
     </Page>
