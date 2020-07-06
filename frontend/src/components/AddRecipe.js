@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Form, Col, Button, ListGroup } from 'react-bootstrap'
+import StateContext from '../StateContext'
+import Axios from 'axios'
 import Page from './Page'
 import IngredientsListItem from './IngredientsListItem'
 
 function AddRecipe() {
+  const appState = useContext( StateContext )
+
   const [ ingredients, setIngredients ] = useState( [] )
   const [ ingredientName, setIngredientName ] = useState( '' )
   const [ quantity, setQuantity ] = useState( '' )
   const [ units, setUnits ] = useState( '' )
-  const [ title, setTiltle ] = useState( '' )
+  const [ title, setTitle ] = useState( '' )
   const [ category, setCategory ] = useState( '' )
   const [ calories, setCalories ] = useState( '' )
   const [ time, setTime ] = useState( '' )
   const [ instructions, setInstructions ] = useState( '' )
 
-  function handleAddRecipe( e ) {
+  async function handleAddRecipe( e ) {
     e.preventDefault()
     const recipe = {
       title,
@@ -23,6 +27,30 @@ function AddRecipe() {
       time,
       ingredients,
       instructions
+    }
+
+    try {
+      console.log( appState.user )
+      const AUTH_TOKEN = appState.user.token
+      Axios.defaults.headers.common[ 'Authorization' ] = AUTH_TOKEN;
+      const response = await Axios.post( 'http://localhost:3000/addRecipe', recipe )
+      // const response = await Axios.get( 'http://localhost:3000/recipes' )
+      if ( response.data ) {
+        console.log( response.data )
+        setIngredients( '' )
+        setIngredientName( '' )
+        setQuantity( '' )
+        setUnits( '' )
+        setTitle( '' )
+        setCategory( '' )
+        setCalories( '' )
+        setTime( '' )
+        setInstructions( '' )
+      } else {
+        console.log( 'Ups' )
+      }
+    } catch ( e ) {
+      console.log( 'There was a problem.', e )
     }
     console.log( recipe )
   }
@@ -48,13 +76,13 @@ function AddRecipe() {
         <Form onSubmit={ handleAddRecipe } className='add-recipe-form col-xs-12 col-lg-8 offset-lg-2'>
           <Form.Group controlId="recipeTitle">
             <Form.Label>Title</Form.Label>
-            <Form.Control onChange={ e => setTiltle( e.target.value ) } placeholder="Title" />
+            <Form.Control onChange={ e => setTitle( e.target.value ) } placeholder="Title" />
           </Form.Group>
           <Form.Row>
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCategory">
                 <Form.Label>Category</Form.Label>
-                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" defaultValue="Category">
+                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" defaultValue="Appetizers" placeholder="Choose category">
                   <option>Appetizers</option>
                   <option>Salads</option>
                   <option>Soups</option>
@@ -109,11 +137,13 @@ function AddRecipe() {
             </Button>
           </Form.Group>
 
-          <ListGroup className="ingredientsListItem" variant="flush">
-            { ingredients.map( ( ingredient, index ) => {
-              return < IngredientsListItem key={ index } handleRemoveIngredient={ handleRemoveIngredient } ingredient={ { ...ingredient, id: index } } />
-            } ) }
-          </ListGroup>
+          { ingredients.length > 0 &&
+            <ListGroup className="ingredientsListItem" variant="flush">
+              { ingredients.map( ( ingredient, index ) => {
+                return < IngredientsListItem key={ index } handleRemoveIngredient={ handleRemoveIngredient } ingredient={ { ...ingredient, id: index } } />
+              } ) }
+            </ListGroup>
+          }
 
           <Form.Group className="instructions-container">
             <Form.Label className="instructions-label col-12 p-0">Instructions</Form.Label>

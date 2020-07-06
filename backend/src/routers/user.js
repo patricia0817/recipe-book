@@ -39,7 +39,6 @@ router.post( '/login', async ( req, res ) => {
 
 // router.post( '/logoutAll', auth, async ( req, res ) => {
 router.post( '/logout', auth, async ( req, res ) => {
-  console.log( req.body )
   try {
     req.user.tokens = []
     await req.user.save()
