@@ -5,7 +5,7 @@ import IngredientsListItem from './IngredientsListItem'
 
 function AddRecipe() {
   const [ ingredients, setIngredients ] = useState( [] )
-  const [ ingredient, setIngredient ] = useState( '' )
+  const [ ingredientName, setIngredientName ] = useState( '' )
   const [ quantity, setQuantity ] = useState( '' )
   const [ units, setUnits ] = useState( '' )
   const [ title, setTiltle ] = useState( '' )
@@ -29,8 +29,8 @@ function AddRecipe() {
 
   function handleAddIngredient( e ) {
     e.preventDefault();
-    setIngredients( ingredients.concat( { ingredient, quantity, units } ) )
-    setIngredient( '' )
+    setIngredients( ingredients.concat( { ingredientName, quantity, units } ) )
+    setIngredientName( '' )
     setQuantity( '' )
     setUnits( '' )
   }
@@ -67,7 +67,7 @@ function AddRecipe() {
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCalories">
                 <Form.Label>Calories</Form.Label>
-                <Form.Control onChange={ e => setCalories( e.target.value ) } type="number" placeholder="Calories" />
+                <Form.Control min="0" onChange={ e => setCalories( e.target.value ) } type="number" placeholder="Calories" />
               </Form.Group>
             </Col>
 
@@ -86,7 +86,7 @@ function AddRecipe() {
               <Col xs={ 12 } lg={ 4 }>
                 <Form.Group controlId="recipeIngredientQuantity">
                   <Form.Label>Quantity</Form.Label>
-                  <Form.Control onChange={ e => setQuantity( e.target.value ) } value={ quantity } type="number" placeholder="Quantity" />
+                  <Form.Control onChange={ e => setQuantity( e.target.value ) } min="0" value={ quantity } type="number" placeholder="Quantity" />
                 </Form.Group>
               </Col>
 
@@ -100,7 +100,7 @@ function AddRecipe() {
               <Col cs={ 12 } lg={ 4 }>
                 <Form.Group controlId="recipeIngredientName">
                   <Form.Label>Ingredient</Form.Label>
-                  <Form.Control onChange={ e => setIngredient( e.target.value ) } value={ ingredient } type="text" placeholder="Add Ingredient" />
+                  <Form.Control onChange={ e => setIngredientName( e.target.value ) } value={ ingredientName } type="text" placeholder="Add Ingredient" />
                 </Form.Group>
               </Col>
             </Form.Row>
