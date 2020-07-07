@@ -4,11 +4,12 @@ import StateContext from './StateContext'
 import DispatchContext from './DispatchContext'
 import { useImmerReducer } from 'use-immer'
 
-
 import Header from './components/Header'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import AddRecipe from './components/AddRecipe';
+import Axios from 'axios'
+Axios.defaults.baseURL = 'http://localhost:3000'
 
 function App() {
   const initialState = {

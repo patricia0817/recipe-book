@@ -14,7 +14,7 @@ function HeaderLoggedOut() {
     e.preventDefault()
 
     try {
-      const response = await Axios.post( 'http://localhost:3000/login', { email, password } )
+      const response = await Axios.post( '/login', { email, password } )
       if ( response.data ) {
         localStorage.setItem( 'recipeBookToken', response.data.token )
         localStorage.setItem( 'recipeBookEmail', response.data.user.email )

@@ -33,8 +33,7 @@ function AddRecipe() {
       console.log( appState.user )
       const AUTH_TOKEN = appState.user.token
       Axios.defaults.headers.common[ 'Authorization' ] = AUTH_TOKEN;
-      const response = await Axios.post( 'http://localhost:3000/addRecipe', recipe )
-      // const response = await Axios.get( 'http://localhost:3000/recipes' )
+      const response = await Axios.post( '/addRecipe', recipe )
       if ( response.data ) {
         console.log( response.data )
         setIngredients( '' )
@@ -47,10 +46,10 @@ function AddRecipe() {
         setTime( '' )
         setInstructions( '' )
       } else {
-        console.log( 'Ups' )
+        console.log( 'Something went wrong.' )
       }
     } catch ( e ) {
-      console.log( 'There was a problem.', e )
+      console.log( 'There was a problem.' )
     }
     console.log( recipe )
   }

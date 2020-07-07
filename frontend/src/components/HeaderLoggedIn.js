@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import StateContext from '../StateContext'
 import DispatchContext from '../DispatchContext'
@@ -12,11 +12,12 @@ function HeaderLoggedIn( props ) {
   async function handleLogout() {
     const AUTH_TOKEN = appState.user.token
     Axios.defaults.headers.common[ 'Authorization' ] = AUTH_TOKEN;
-    Axios.post( 'http://localhost:3000/logout' )
+    Axios.post( '/logout' )
     localStorage.removeItem( 'recipeBookToken' )
     localStorage.removeItem( 'recipeBookEmail' )
     localStorage.removeItem( 'recipeBookUsername' )
     appDispatch( { type: 'logout' } )
+    props.history.push( '/' )
   }
 
   return (
@@ -29,4 +30,4 @@ function HeaderLoggedIn( props ) {
   )
 }
 
-export default HeaderLoggedIn 
+export default withRouter( HeaderLoggedIn ) 

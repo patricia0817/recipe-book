@@ -7,7 +7,7 @@ function NavigationMenu() {
     <div className="navigation-menu">
       <Navbar fixed="top" bg="light" expand="lg">
         <Navbar.Brand href="/" className="logo">Recipe Book
-    </Navbar.Brand>
+      </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
