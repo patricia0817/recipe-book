@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Form, Col, Button, ListGroup } from 'react-bootstrap'
+import { Image, Form, Col, Button, ListGroup } from 'react-bootstrap'
 import StateContext from '../StateContext'
 import Axios from 'axios'
 import Page from './Page'
@@ -30,12 +30,10 @@ function AddRecipe() {
     }
 
     try {
-      console.log( appState.user )
       const AUTH_TOKEN = appState.user.token
       Axios.defaults.headers.common[ 'Authorization' ] = AUTH_TOKEN;
       const response = await Axios.post( '/addRecipe', recipe )
       if ( response.data ) {
-        console.log( response.data )
         setIngredients( '' )
         setIngredientName( '' )
         setQuantity( '' )
@@ -45,13 +43,13 @@ function AddRecipe() {
         setCalories( '' )
         setTime( '' )
         setInstructions( '' )
+        console.log( 'Added' )
       } else {
         console.log( 'Something went wrong.' )
       }
     } catch ( e ) {
       console.log( 'There was a problem.' )
     }
-    console.log( recipe )
   }
 
   function handleAddIngredient( e ) {
@@ -75,13 +73,13 @@ function AddRecipe() {
         <Form onSubmit={ handleAddRecipe } className='add-recipe-form col-xs-12 col-lg-8 offset-lg-2'>
           <Form.Group controlId="recipeTitle">
             <Form.Label>Title</Form.Label>
-            <Form.Control onChange={ e => setTitle( e.target.value ) } placeholder="Title" />
+            <Form.Control onChange={ e => setTitle( e.target.value ) } value={ title } placeholder="Title" />
           </Form.Group>
           <Form.Row>
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCategory">
                 <Form.Label>Category</Form.Label>
-                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" defaultValue="Appetizers" placeholder="Choose category">
+                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" value={ category } defaultValue="Appetizers" placeholder="Choose category">
                   <option>Appetizers</option>
                   <option>Salads</option>
                   <option>Soups</option>
@@ -94,14 +92,14 @@ function AddRecipe() {
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCalories">
                 <Form.Label>Calories</Form.Label>
-                <Form.Control min="0" onChange={ e => setCalories( e.target.value ) } type="number" placeholder="Calories" />
+                <Form.Control min="0" value={ calories } onChange={ e => setCalories( e.target.value ) } type="number" placeholder="Calories" />
               </Form.Group>
             </Col>
 
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeTime">
                 <Form.Label>Time</Form.Label>
-                <Form.Control onChange={ e => setTime( e.target.value ) } type="time" placeholder="Time" />
+                <Form.Control value={ time } onChange={ e => setTime( e.target.value ) } type="time" placeholder="Time" />
               </Form.Group>
             </Col>
           </Form.Row>
@@ -146,7 +144,12 @@ function AddRecipe() {
 
           <Form.Group className="instructions-container">
             <Form.Label className="instructions-label col-12 p-0">Instructions</Form.Label>
-            <textarea onChange={ e => setInstructions( e.target.value ) } className="instructions col-12" placeholder="Add Instructions"></textarea>
+            <textarea onChange={ e => setInstructions( e.target.value ) } className="instructions col-12" value={ instructions } placeholder="Add Instructions"></textarea>
+          </Form.Group>
+          <Form.Group>
+            <form action="/profile" method="post" enctype="multipart/form-data">
+              <input type="file" name="avatar" />
+            </form>
           </Form.Group>
           <Button type="submit" variant="dark" className="add-recipe-button">Add Recipe</Button>
         </Form>

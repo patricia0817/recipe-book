@@ -7,7 +7,9 @@ import { useImmerReducer } from 'use-immer'
 import Header from './components/Header'
 import Home from './components/Home'
 import Footer from './components/Footer'
-import AddRecipe from './components/AddRecipe';
+import AddRecipe from './components/AddRecipe'
+import ViewRecipe from './components/ViewRecipe'
+
 import Axios from 'axios'
 Axios.defaults.baseURL = 'http://localhost:3000'
 
@@ -46,6 +48,9 @@ function App() {
             </Route>
             <Route path='/addRecipe'>
               <AddRecipe />
+            </Route>
+            <Route path='/viewRecipe/:id'>
+              <ViewRecipe />
             </Route>
           </Switch>
           <Footer />
