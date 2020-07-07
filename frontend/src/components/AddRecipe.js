@@ -17,6 +17,7 @@ function AddRecipe() {
   const [ calories, setCalories ] = useState( '' )
   const [ time, setTime ] = useState( '' )
   const [ instructions, setInstructions ] = useState( '' )
+  const [ error, setError ] = useState( '' )
 
   async function handleAddRecipe( e ) {
     e.preventDefault()
@@ -54,10 +55,14 @@ function AddRecipe() {
 
   function handleAddIngredient( e ) {
     e.preventDefault();
-    setIngredients( ingredients.concat( { ingredientName, quantity, units } ) )
-    setIngredientName( '' )
-    setQuantity( '' )
-    setUnits( '' )
+    if ( ingredientName && quantity && units ) {
+      setIngredients( ingredients.concat( { ingredientName, quantity, units } ) )
+      setIngredientName( '' )
+      setQuantity( '' )
+      setUnits( '' )
+    } else {
+      setError( 'Please fill all the fields' )
+    }
   }
 
   function handleRemoveIngredient( ingredientId ) {
@@ -129,6 +134,7 @@ function AddRecipe() {
                 </Form.Group>
               </Col>
             </Form.Row>
+            { error.length > 0 && <div className="text-danger pb-3">{ error }</div> }
             <Button onClick={ handleAddIngredient } variant="dark" type="submit">
               Add
             </Button>
