@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Image, Form, Col, Button, ListGroup } from 'react-bootstrap'
+import { Form, Col, Button, ListGroup } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 import StateContext from '../StateContext'
 import Axios from 'axios'
 import Page from './Page'
 import IngredientsListItem from './IngredientsListItem'
 
-function AddRecipe() {
+function AddRecipe( props ) {
   const appState = useContext( StateContext )
 
   const [ ingredients, setIngredients ] = useState( [] )
@@ -35,6 +36,9 @@ function AddRecipe() {
       Axios.defaults.headers.common[ 'Authorization' ] = AUTH_TOKEN;
       const response = await Axios.post( '/addRecipe', recipe )
       if ( response.data ) {
+        //Redirect to view recipe
+        props.history.push( `/viewRecipe/${ response.data._id } ` )
+
         setIngredients( '' )
         setIngredientName( '' )
         setQuantity( '' )
@@ -74,7 +78,7 @@ function AddRecipe() {
 
   return (
     <Page>
-      <div className="container">
+      <div className="container pt-3">
         <Form onSubmit={ handleAddRecipe } className='add-recipe-form col-xs-12 col-lg-8 offset-lg-2'>
           <Form.Group controlId="recipeTitle">
             <Form.Label>Title</Form.Label>
@@ -84,7 +88,7 @@ function AddRecipe() {
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCategory">
                 <Form.Label>Category</Form.Label>
-                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" value={ category } defaultValue="Appetizers" placeholder="Choose category">
+                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" value={ category } placeholder="Choose category">
                   <option>Appetizers</option>
                   <option>Salads</option>
                   <option>Soups</option>
@@ -152,7 +156,7 @@ function AddRecipe() {
             <Form.Label className="instructions-label col-12 p-0">Instructions</Form.Label>
             <textarea onChange={ e => setInstructions( e.target.value ) } className="instructions col-12" value={ instructions } placeholder="Add Instructions"></textarea>
           </Form.Group>
-          <Form.Group action="/profile" method="post" enctype="multipart/form-data">
+          <Form.Group action="/profile" method="post" encType="multipart/form-data">
             <input type="file" name="recipePicture" />
           </Form.Group>
           <Button type="submit" variant="dark" className="add-recipe-button">Add Recipe</Button>
@@ -162,4 +166,4 @@ function AddRecipe() {
   )
 }
 
-export default AddRecipe
+export default withRouter( AddRecipe )

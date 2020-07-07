@@ -7,13 +7,11 @@ function IngredientsCard() {
     <Card className="ingredients-card-container col-xs-12 col-lg-5">
       <Card.Body>
         <Card.Title className="ingredients-card-title text-success">Ingredients</Card.Title>
-        <Card.Text>
-          <ListGroup variant="flush">
-            <IngredientsListItem viewRecipe ingredient={ { ingredientName: "onions", quantity: "21", units: "tbs", id: 0 } } />
-            <IngredientsListItem viewRecipe ingredient={ { ingredientName: "onions", quantity: "21", units: "tbs", id: 0 } } />
-            <IngredientsListItem viewRecipe ingredient={ { ingredientName: "onions", quantity: "21", units: "tbs", id: 0 } } />
-          </ListGroup>
-        </Card.Text>
+        <ListGroup variant="flush">
+          <IngredientsListItem viewRecipe ingredient={ { ingredientName: "onions", quantity: "21", units: "tbs", id: 0 } } />
+          <IngredientsListItem viewRecipe ingredient={ { ingredientName: "onions", quantity: "21", units: "tbs", id: 0 } } />
+          <IngredientsListItem viewRecipe ingredient={ { ingredientName: "onions", quantity: "21", units: "tbs", id: 0 } } />
+        </ListGroup>
       </Card.Body>
     </Card>
   )

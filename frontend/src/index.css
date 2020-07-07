@@ -71,7 +71,7 @@
 }
 
 .content-container {
-  margin-top: 12rem;
+  margin-top: 8rem;
   margin-bottom: 5rem;
 }
 
@@ -230,4 +230,8 @@
 
 .ingredients-card-title {
   border-bottom: 1px solid rgba(52, 58, 64, 0.3);
+}
+
+.macro-info-description {
+  display: block;
 }
