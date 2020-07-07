@@ -13,10 +13,12 @@ function ViewRecipe() {
           <MacrosCard />
         </Container>
       </Jumbotron>
-      <CardDeck className="view-recipe-content px-5">
-        <IngredientsCard />
-        <InstructionsCard />
-      </CardDeck>
+      <div className="container">
+        <CardDeck className="view-recipe-content">
+          <IngredientsCard />
+          <InstructionsCard />
+        </CardDeck>
+      </div>
     </Page>
   )
 }
