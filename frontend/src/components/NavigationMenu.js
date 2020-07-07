@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Navbar, Nav, Button } from 'react-bootstrap'
+import StateContext from '../StateContext'
 
 function NavigationMenu() {
+  const appState = useContext( StateContext )
+
   return (
-    <div className="navigation-menu">
+    <div className={ `navigation-menu ${ !appState.loggedIn && "navigation-menu__logged-out" }` }>
       <Navbar fixed="top" bg="light" expand="lg">
         <Navbar.Brand href="/" className="logo">Recipe Book
       </Navbar.Brand>

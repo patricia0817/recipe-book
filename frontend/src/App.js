@@ -35,19 +35,6 @@ function App() {
 
   const [ state, dispatch ] = useImmerReducer( appReducer, initialState )
 
-  // useEffect( () => {
-  //   console.log( state.loggedIn )
-  //   if ( state.loggedIn ) {
-  //     localStorage.setItem( 'recipeBookToken', state.user.token );
-  //     localStorage.setItem( 'recipeBookUsername', state.user.username );
-  //     localStorage.setItem( 'recipeBookEmail', state.user.email );
-  //   } else {
-  //     localStorage.removeItem( 'recipeBookToken' );
-  //     localStorage.removeItem( 'recipeBookUsername' );
-  //     localStorage.removeItem( 'recipeBookEmail' );
-  //   }
-  // }, [ state.loggedIn ] )
-
   return (
     <StateContext.Provider value={ state }>
       <DispatchContext.Provider value={ dispatch }>

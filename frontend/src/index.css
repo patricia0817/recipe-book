@@ -2,6 +2,16 @@
   top: 70px;
 }
 
+.navigation-menu__logged-out nav{
+  top: 172px
+}
+
+@media (min-height: 768px) {
+  .navigation-menu__logged-out nav{
+    top: 70px;
+  }
+}
+
 .logged-in-controls, .login-form {
   position: fixed;
   top: 0;
@@ -65,12 +75,19 @@
   margin-bottom: 2rem;
 }
 
+.content-container__logged-out {
+  margin-top: 14.2rem;
+}
+
 .add-recipe-form {
   margin-bottom: 6rem;
 }
 
 @media (min-height: 768px) and (min-width: 1366px) {
   .content-container {
+    margin-top: 10rem;
+  }
+  .content-container__logged-out {
     margin-top: 10rem;
   }
 }
