@@ -19,10 +19,35 @@ router.post( '/addRecipe', auth, async ( req, res ) => {
   }
 } )
 
-router.get( '/recipes', auth, async ( req, res ) => {
+router.get( '/recipes', async ( req, res ) => {
+  try {
+    const recipes = await Recipe.find()
+    res.send( recipes )
+  } catch ( e ) {
+    res.status( 500 ).send()
+  }
+} )
+
+router.get( '/myRecipes', auth, async ( req, res ) => {
   try {
     const recipes = await Recipe.find( { owner: req.user._id } )
     res.send( recipes )
+  } catch ( e ) {
+    res.status( 500 ).send()
+  }
+} )
+
+router.get( '/recipes/:id', async ( req, res ) => {
+  const _id = req.params.id
+  console.log( req.params.id )
+  try {
+    const recipe = await Recipe.findOne( { _id } )
+
+    if ( !recipe ) {
+      return res.status( 404 ).send()
+    }
+
+    res.send( recipe )
   } catch ( e ) {
     res.status( 500 ).send()
   }
