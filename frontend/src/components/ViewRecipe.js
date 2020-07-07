@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react'
-import { Jumbotron, Container } from 'react-bootstrap'
+import { Jumbotron, Container, CardDeck } from 'react-bootstrap'
 import Page from './Page'
+import MacrosCard from './MacrosCard'
+import InstructionsCard from './InstructionsCard'
+import IngredientsCard from './IngredientsCard'
 
 function ViewRecipe() {
   return (
     <Page>
       <Jumbotron fluid className="view-recipe-jumbotron">
         <Container>
-          <h1>Fluid jumbotron</h1>
-          <p>
-            This is a modified jumbotron that occupies the entire horizontal space of
-            its parent.
-    </p>
+          <MacrosCard />
         </Container>
       </Jumbotron>
+      <CardDeck className="view-recipe-content px-5">
+        <IngredientsCard />
+        <InstructionsCard />
+      </CardDeck>
     </Page>
   )
 }

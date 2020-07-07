@@ -72,7 +72,7 @@
 
 .content-container {
   margin-top: 12rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 .content-container__logged-out {
@@ -183,7 +183,8 @@
 .ingredients-list-item {
   display: flex;
   justify-content: space-between;
-  border: none
+  background-color: transparent;
+  /* border: none */
 }
 
 .add-recipe-button {
@@ -200,8 +201,33 @@
   background: url('https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 
 .view-recipe-jumbotron {
-  /* background */
+  background-image: url('https://images.pexels.com/photos/3590401/pexels-photo-3590401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.macro-info-container {
+  display: flex;
+  padding: 0.5rem;
+}
+
+.macros {
+  margin-left: 1rem;
+}
+
+.macros-card {
+  opacity: 0.7;
+}
+
+.ingredients-card-container {
+  background-color: rgba(241, 209, 172, 0.23);
+}
+
+.ingredients-card-title {
+  border-bottom: 1px solid rgba(52, 58, 64, 0.3);
 }

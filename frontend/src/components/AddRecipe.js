@@ -146,10 +146,8 @@ function AddRecipe() {
             <Form.Label className="instructions-label col-12 p-0">Instructions</Form.Label>
             <textarea onChange={ e => setInstructions( e.target.value ) } className="instructions col-12" value={ instructions } placeholder="Add Instructions"></textarea>
           </Form.Group>
-          <Form.Group>
-            <form action="/profile" method="post" enctype="multipart/form-data">
-              <input type="file" name="avatar" />
-            </form>
+          <Form.Group action="/profile" method="post" enctype="multipart/form-data">
+            <input type="file" name="recipePicture" />
           </Form.Group>
           <Button type="submit" variant="dark" className="add-recipe-button">Add Recipe</Button>
         </Form>
