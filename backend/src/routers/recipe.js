@@ -39,7 +39,6 @@ router.get( '/myRecipes', auth, async ( req, res ) => {
 
 router.get( '/recipes/:id', async ( req, res ) => {
   const _id = req.params.id
-  console.log( req.params.id )
   try {
     const recipe = await Recipe.findOne( { _id } )
 

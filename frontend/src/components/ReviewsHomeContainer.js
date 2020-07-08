@@ -3,9 +3,9 @@ import ReviewHomeCard from './ReviewHomeCard'
 
 function ReviewsHomeContainer() {
   return (
-    <div className="small-receipe-area section-padding-80-0">
+    <div className="small-recipe-area section-padding-80-0">
       <div className="container">
-        <div className="small-receipe-area-row row">
+        <div className="small-recipe-area-row row">
           <ReviewHomeCard />
           <ReviewHomeCard />
           <ReviewHomeCard />

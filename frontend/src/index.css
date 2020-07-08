@@ -164,7 +164,7 @@ body {
     padding-bottom: 30px;
 }
 
-.small-receipe-area-row {
+.small-recipe-area-row {
   justify-content: space-between;
 }
 
@@ -189,19 +189,20 @@ body {
 .recipe-thumb img {
   height: auto;
   max-width: 100%;
+  box-shadow: 0px 2px 2px 0px rgba(65, 46, 46, 0.2), 0px 4px 4px 0px rgba(0,0,0,0.16), 0px 8px 8px 0px rgba(0,0,0,0.12);
 }
 
-.single-small-receipe-area .receipe-content span {
+.single-small-recipe-area .recipe-content span {
   font-size: 12px;
   display: block;
   color: #40ba37;
 }
 
-.single-small-receipe-area .receipe-content a {
+.single-small-recipe-area .recipe-content a {
   display: block;
 }
 
-.single-small-receipe-area .receipe-content a h5 {
+.single-small-recipe-area .recipe-content a h5 {
   color: #474747;
   font-size: 18px;
   margin-bottom: 5px;
@@ -209,29 +210,29 @@ body {
   transition-duration: 500ms;
 }
 
-.single-small-receipe-area .receipe-content a h5:hover, .single-small-receipe-area .receipe-content a h5:focus {
+.single-small-recipe-area .recipe-content a h5:hover, .single-small-recipe-area .recipe-content a h5:focus {
   color: #40ba37;
   text-decoration: none;
 }
 
-.receipe-content-title:hover {
+.recipe-content-title:hover {
   text-decoration: none;
 }
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
-  .single-small-receipe-area .receipe-content a h5 {
+  .single-small-recipe-area .recipe-content a h5 {
     font-size: 16px;
   }
 }
 
-.single-small-receipe-area .receipe-content .ratings i {
+.single-small-recipe-area .recipe-content .ratings i {
   font-size: 11px;
   color: #fbb710;
   display: inline-block;
   padding: 0 1px;
 }
 
-.single-small-receipe-area .receipe-content .recipe-content-comments {
+.single-small-recipe-area .recipe-content .recipe-content-comments {
   font-size: 12px;
   margin-bottom: 0;
   color: #9b9b9b;
@@ -293,30 +294,30 @@ body {
   display: block;
 } */
 
-.receipe-headline h2 {
+.recipe-headline h2 {
   font-size: 36px;
   color: #474747;
   margin-bottom: 30px;
 }
 
-.receipe-headline span {
+.recipe-headline span {
   font-size: 14px;
   display: block;
   color: #a4a4a4;
   margin-bottom: 0;
 }
 
-.receipe-headline .receipe-duration {
+.recipe-headline .recipe-duration {
   border-left: 3px solid #40ba37;
   padding: 15px;
 }
 
-.receipe-headline .receipe-duration h6 {
+.recipe-headline .recipe-duration h6 {
   font-size: 15px;
   margin-bottom: 5px;
 }
 
-.receipe-ratings i {
+.recipe-ratings i {
   font-size: 18px;
   color: #fbb710;
   padding: 0 3px;

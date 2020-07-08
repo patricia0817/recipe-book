@@ -1,13 +1,44 @@
-import React, { useEffect } from 'react'
-import { Jumbotron, Container } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import Axios from 'axios'
+import { Jumbotron, Container, Spinner } from 'react-bootstrap'
 import Page from './Page'
 import SinglePreparationStep from './SinglePreparationStep'
 import IngredientsItem from './IngredientsItem'
 import ContactForm from './ContactForm'
 
-function ViewRecipe() {
+function ViewRecipe( props ) {
+  const { id } = useParams()
+  const [ isLoading, setIsLoading ] = useState( true )
+  const [ recipe, setRecipe ] = useState( {} )
 
+  useEffect( () => {
+    async function fetchRecipe() {
+      try {
+        const response = await Axios( `/recipes/${ id }` )
+        if ( response.data ) {
+          setIsLoading( false )
+          setRecipe( response.data )
+        }
+      } catch ( e ) {
+        console.log( 'There was a problem.' )
+      }
+    }
 
+    fetchRecipe()
+  }, [] )
+
+  if ( isLoading ) {
+    return (
+      <Page>
+        <div className="loading-container text-center pt-5">
+          <Spinner animation="border" />
+          <h4 style={ { display: "inline-block", marginLeft: "1rem" } }>Loading...</h4>
+        </div>
+      </Page >
+    )
+  }
+  console.log( recipe )
   return (
     <Page>
       <Jumbotron fluid className="view-recipe-jumbotron text-center h-100">
@@ -17,54 +48,48 @@ function ViewRecipe() {
         <div className="recipe-content-area">
           <Container>
             <div className="row">
-              <div class="col-12 col-md-8">
-                <div class="receipe-headline my-5">
-                  <span>April 05, 2018</span>
-                  <h2>Vegetarian cheese salad</h2>
-                  <div class="receipe-duration">
-                    <h6>Prep: 15 mins</h6>
-                    <h6>Cook: 30 mins</h6>
-                    <h6>Yields: 8 Servings</h6>
+              <div className="col-12 col-md-8">
+                <div className="recipe-headline my-5">
+                  <h2>{ recipe.title }</h2>
+                  <div className="recipe-duration">
+                    <h6>Cook: { recipe.time }</h6>
+                    <h6>Calories: { recipe.calories }</h6>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-4">
-                <div class="receipe-ratings text-right my-5">
-                  <div class="ratings">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+              <div className="col-12 col-md-4">
+                <div className="recipe-ratings text-right mt-5 mb-3">
+                  <div className="ratings">
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star" aria-hidden="true"></i>
+                    <i className="fa fa-star-o" aria-hidden="true"></i>
                   </div>
+                </div>
+                <div className="recipe-category text-right">
+                  <h3 className="text-success">Salad</h3>
                 </div>
               </div>
             </div>
             <div className="row">
-              <div class="col-12 col-lg-8">
-
-                <SinglePreparationStep />
-                <SinglePreparationStep />
-                <SinglePreparationStep />
-
+              <div className="col-12 col-lg-8">
+                <SinglePreparationStep instructions={ recipe.instructions } />
               </div>
               <div className="col-12 col-lg-4">
                 <div className="ingredients">
                   <h4>Ingredients</h4>
-                  <IngredientsItem />
-                  <IngredientsItem />
-                  <IngredientsItem />
-                  <IngredientsItem />
-                  <IngredientsItem />
-                  <IngredientsItem />
-                  <IngredientsItem />
-                  <IngredientsItem />
+                  {
+                    recipe.ingredients && recipe.ingredients.map( ( ingredient, index ) => {
+                      return <IngredientsItem key={ index } ingredient={ ingredient } />
+                    } )
+                  }
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="section-heading text-left">
+            <div className="row mt-5">
+              <div className="col-12">
+                <div className="section-heading text-left">
                   <h3>Leave a comment</h3>
                 </div>
               </div>
