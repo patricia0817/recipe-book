@@ -261,13 +261,14 @@ body {
 }
 
 .view-recipe-jumbotron {
-  background-image: url('https://images.pexels.com/photos/3590401/pexels-photo-3590401.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  background-image: url('https://images.pexels.com/photos/750073/pexels-photo-750073.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  color: white;
 }
 
-.macro-info-container {
+/* .macro-info-container {
   display: flex;
   padding: 0.5rem;
 }
@@ -290,4 +291,103 @@ body {
 
 .macro-info-description {
   display: block;
+} */
+
+.receipe-headline h2 {
+  font-size: 36px;
+  color: #474747;
+  margin-bottom: 30px;
+}
+
+.receipe-headline span {
+  font-size: 14px;
+  display: block;
+  color: #a4a4a4;
+  margin-bottom: 0;
+}
+
+.receipe-headline .receipe-duration {
+  border-left: 3px solid #40ba37;
+  padding: 15px;
+}
+
+.receipe-headline .receipe-duration h6 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.receipe-ratings i {
+  font-size: 18px;
+  color: #fbb710;
+  padding: 0 3px;
+}
+
+.single-preparation-step {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 50px;
+}
+
+.single-preparation-step h4 {
+  color: #474747;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 60px;
+  flex: 0 0 60px;
+  max-width: 60px;
+  width: 60px;
+  margin-bottom: 0;
+}
+
+.single-preparation-step p {
+    color: #9b9b9b;
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 400;
+}
+
+.ingredients h4 {
+  color: #474747;
+  margin-bottom: 30px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(155, 155, 155, 0.5);
+}
+
+.ingredient {
+  margin-bottom: 30px;
+  min-height: 35px;
+}
+
+.ingredients {
+  border-left: 3px solid #40ba37;
+  padding: 15px;
+}
+
+.section-heading.text-left {
+  text-align: left!important;
+}
+.section-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.section-heading h3 {
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.contact-form-area .form-control {
+  height: 52px;
+  width: 100%;
+  background-color: #f3f5f8;
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 15px;
+  border: none;
+  border-left: 3px solid #f3f5f8;
+  border-radius: 0;
+  padding: 15px 30px;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
 }
