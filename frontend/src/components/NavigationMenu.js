@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import StateContext from '../StateContext'
 
-function NavigationMenu() {
+function NavigationMenu( props ) {
   const appState = useContext( StateContext )
 
   return (
@@ -16,7 +16,7 @@ function NavigationMenu() {
           <Nav className="mr-auto">
             <NavLink to="/allrecipes" exact className="navbar-link" activeClassName="navbar-link__active">All Recipes</NavLink>
             <NavLink to="/favorites" className="navbar-link" activeClassName="navbar-link__active">Favorites</NavLink>
-            <Button variant="outline-warning">View All Categories</Button>
+            <Button variant="outline-success">View All Categories</Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -24,4 +24,4 @@ function NavigationMenu() {
   )
 }
 
-export default NavigationMenu
+export default withRouter( NavigationMenu )

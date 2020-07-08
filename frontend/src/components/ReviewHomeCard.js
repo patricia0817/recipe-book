@@ -5,16 +5,23 @@ import Rating from './Rating'
 
 function ReviewHomeCard() {
   return (
-    <div className="review-home-card-container col-xs-12 col-md-4 mb-5">
-      <div className="row">
-        <div className="review-home-card-thumbnail">
+    <div className="single-small-receipe-area d-flex mb-4">
+      <div className="recipe-thumb">
+        <img src="https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+      </div>
+      <div class="receipe-content">
+        <span>January 04, 2018</span>
+        <NavLink className="receipe-content-title" to="/">
+          <h5>Homemade italian pasta</h5>
+        </NavLink>
+        <div class="ratings">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
         </div>
-        <div className="col-7">
-          <p className="review-home-card-date">January 04, 2018</p>
-          <NavLink to="/" className="review-home-card-title">Primavera Soup</NavLink>
-          <Rating className="review-home-card-rating" />
-          <NavLink to="/" className="review-home-card-comments">2 Comments</NavLink>
-        </div>
+        <NavLink className="recipe-content-comments" to="/">2 Comments</NavLink>
       </div>
     </div>
   )

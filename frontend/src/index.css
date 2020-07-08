@@ -102,6 +102,7 @@ body {
 .hero-card-container {
   opacity: 0.7;
   color: #343a40;
+  max-width: 400px;
 }
 
 .signin-button:focus {
@@ -121,6 +122,15 @@ body {
   box-shadow: 0px 2px 2px 0px rgba(65, 46, 46, 0.2), 0px 4px 4px 0px rgba(0,0,0,0.16), 0px 8px 8px 0px rgba(0,0,0,0.12);
 }
 
+.best-recipe-image {
+  background: url(https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  border-top-right-radius: .25rem;
+  width: 100%;
+  display: inline-block;
+  height: 200px;
+  border-top-left-radius: .25rem;
+}
+
 .best-recipe-card__title {
   color: #343a40;
   opacity: 0.7;
@@ -134,6 +144,7 @@ body {
 
 .best-recipe-card-rating {
   color: #ffc107;
+  font-size: small;
 }
 
 .discover-all-recipes-container {
@@ -143,58 +154,93 @@ body {
   background-position: center;
   background-size: cover;
   color: white;
+  border-radius: 0;
+  height: 100vh;
 }
 
-.review-home-card-container {
-  display: inline-block;
+.small-recipe-area {
+  position: relative;
+    z-index: 1;
+    padding-bottom: 30px;
 }
 
-.review-home-card-thumbnail {
-  height: 100px;
+.small-receipe-area-row {
+  justify-content: space-between;
+}
+
+.section-padding-80-0 {
+  padding-top: 80px;
+  padding-bottom: 0;
+}
+
+.single-small-recipe-area {
+  position: relative;
+    z-index: 1;
+    margin-bottom: 50px;
+}
+
+.recipe-thumb {
+  flex: 0 0 100px;
+  max-width: 100px;
   width: 100px;
-  background: url("https://images.pexels.com/photos/3662104/pexels-photo-3662104.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  box-shadow: 0px 2px 2px 0px rgba(65, 46, 46, 0.2), 0px 4px 4px 0px rgba(0,0,0,0.16), 0px 8px 8px 0px rgba(0,0,0,0.12);
+  padding-right: 20px;
 }
 
-.review-home-card-date {
-  opacity: 0.6;
-  font-size: 0.7rem;
+.recipe-thumb img {
+  height: auto;
+  max-width: 100%;
 }
 
-.review-home-card-title {
-  color: #343a40;
-  margin-bottom: 0.5rem;
+.single-small-receipe-area .receipe-content span {
+  font-size: 12px;
+  display: block;
+  color: #40ba37;
 }
 
-.review-home-card-title:hover {
-  color: #343a40;
-  font-weight: 500;
+.single-small-receipe-area .receipe-content a {
+  display: block;
+}
+
+.single-small-receipe-area .receipe-content a h5 {
+  color: #474747;
+  font-size: 18px;
+  margin-bottom: 5px;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+.single-small-receipe-area .receipe-content a h5:hover, .single-small-receipe-area .receipe-content a h5:focus {
+  color: #40ba37;
   text-decoration: none;
 }
 
-.review-home-card-rating {
-  margin-bottom: 0.5rem;
-}
-
-.review-home-card-comments {
-  opacity: 0.6;
-  font-size: 0.8rem;
-  color: #343a40;
-}
-
-.review-home-card-comments {
-  color: #343a40;
+.receipe-content-title:hover {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .single-small-receipe-area .receipe-content a h5 {
+    font-size: 16px;
+  }
+}
+
+.single-small-receipe-area .receipe-content .ratings i {
+  font-size: 11px;
+  color: #fbb710;
+  display: inline-block;
+  padding: 0 1px;
+}
+
+.single-small-receipe-area .receipe-content .recipe-content-comments {
+  font-size: 12px;
+  margin-bottom: 0;
+  color: #9b9b9b;
 }
 
 .ingredients-list-item {
   display: flex;
   justify-content: space-between;
   background-color: transparent;
-  /* border: none */
 }
 
 .add-recipe-button {

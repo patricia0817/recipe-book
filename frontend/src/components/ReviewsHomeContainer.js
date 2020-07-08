@@ -3,16 +3,20 @@ import ReviewHomeCard from './ReviewHomeCard'
 
 function ReviewsHomeContainer() {
   return (
-    <div className="reviews-home-container px-5">
-      <ReviewHomeCard />
-      <ReviewHomeCard />
-      <ReviewHomeCard />
-      <ReviewHomeCard />
-      <ReviewHomeCard />
-      <ReviewHomeCard />
-      <ReviewHomeCard />
-      <ReviewHomeCard />
-      <ReviewHomeCard />
+    <div className="small-receipe-area section-padding-80-0">
+      <div className="container">
+        <div className="small-receipe-area-row row">
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+          <ReviewHomeCard />
+        </div>
+      </div>
     </div>
   )
 }
