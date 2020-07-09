@@ -9,7 +9,7 @@ const Recipe = mongoose.model( 'Recipe', {
   },
   category: {
     type: String,
-    default: 'Appetizers'
+    default: "Appetizers"
   },
   calories: {
     type: Number,
@@ -20,7 +20,6 @@ const Recipe = mongoose.model( 'Recipe', {
     default: 0
   },
   ingredients: [ {
-    // ingredient: {
     quantity: {
       type: Number,
       required: true
@@ -34,11 +33,15 @@ const Recipe = mongoose.model( 'Recipe', {
       type: String,
       required: true,
     }
-    // }
   } ],
   instructions: {
     type: String,
     required: true
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
   }
 } )
 

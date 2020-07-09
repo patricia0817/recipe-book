@@ -29,6 +29,7 @@ router.get( '/recipes', async ( req, res ) => {
 } )
 
 router.get( '/myRecipes', auth, async ( req, res ) => {
+  const username = req.params.username
   try {
     const recipes = await Recipe.find( { owner: req.user._id } )
     res.send( recipes )

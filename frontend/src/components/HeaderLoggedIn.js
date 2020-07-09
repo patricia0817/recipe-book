@@ -22,8 +22,8 @@ function HeaderLoggedIn( props ) {
 
   return (
     <div className="pr-3 py-3 logged-in-controls text-right">
-      <Link to="/myProfile"><i className="fa fa-user my-profile-control"></i></Link>
-      <Link to="/addRecipe" className="btn btn-light add-recipe-control">Add Recipe</Link>
+      <Link to={ `/myProfile/${ appState.user.username }` }><i className="fa fa-user my-profile-control"></i></Link>
+      <Link to="/addRecipe/" className="btn btn-light add-recipe-control">Add Recipe</Link>
 
       <Button onClick={ handleLogout } className="sign-out-control" variant="outline-light">Sign Out</Button>
     </div>

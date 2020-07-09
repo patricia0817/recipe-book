@@ -18,6 +18,7 @@ function ViewRecipe( props ) {
         const response = await Axios( `/recipes/${ id }` )
         if ( response.data ) {
           setIsLoading( false )
+          console.log( response.data )
           setRecipe( response.data )
         }
       } catch ( e ) {
@@ -38,7 +39,6 @@ function ViewRecipe( props ) {
       </Page >
     )
   }
-  console.log( recipe )
   return (
     <Page>
       <Jumbotron fluid className="view-recipe-jumbotron text-center h-100">
@@ -68,7 +68,7 @@ function ViewRecipe( props ) {
                   </div>
                 </div>
                 <div className="recipe-category text-right">
-                  <h3 className="text-success">Salad</h3>
+                  <h3 className="text-success">{ recipe.category }</h3>
                 </div>
               </div>
             </div>

@@ -61,7 +61,7 @@ function App() {
             <Route path="/viewAllCategories">
               <ViewAllCategories />
             </Route>
-            <Route path="/myProfile">
+            <Route path="/myProfile/:username">
               <Profile />
             </Route>
           </Switch>

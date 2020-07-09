@@ -14,7 +14,7 @@ function AddRecipe( props ) {
   const [ quantity, setQuantity ] = useState( '' )
   const [ units, setUnits ] = useState( '' )
   const [ title, setTitle ] = useState( '' )
-  const [ category, setCategory ] = useState( '' )
+  const [ category, setCategory ] = useState( 'Appetizers' )
   const [ calories, setCalories ] = useState( '' )
   const [ time, setTime ] = useState( '' )
   const [ instructions, setInstructions ] = useState( '' )
@@ -73,7 +73,6 @@ function AddRecipe( props ) {
     console.log( 'remove' )
     const newIngredientsArray = ingredients.filter( ( item ) => item.id !== ingredientId )
     setIngredients( newIngredientsArray )
-    console.log( ingredients )
   }
 
   return (
@@ -88,7 +87,7 @@ function AddRecipe( props ) {
             <Col xs={ 12 } lg={ 4 }>
               <Form.Group controlId="recipeCategory">
                 <Form.Label>Category</Form.Label>
-                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" value={ category } placeholder="Choose category">
+                <Form.Control onChange={ e => setCategory( e.target.value ) } as="select" defaultValue="Appetizers" placeholder="Choose category">
                   <option>Appetizers</option>
                   <option>Salads</option>
                   <option>Soups</option>
