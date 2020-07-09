@@ -396,3 +396,20 @@ body {
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
 }
+
+.category-cards-container {
+  padding: 3rem 5rem;
+}
+
+.category-card img {
+  height: 100px;
+  width: 100px;
+}
+
+.read-more {
+  color: #9b9b9b
+}
+
+.read-more:hover {
+  color: #40ba37;
+}

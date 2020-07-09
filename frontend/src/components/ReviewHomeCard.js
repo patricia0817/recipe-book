@@ -9,17 +9,17 @@ function ReviewHomeCard() {
       <div className="recipe-thumb">
         <img src="https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
       </div>
-      <div class="recipe-content">
+      <div className="recipe-content">
         <span>January 04, 2018</span>
         <NavLink className="recipe-content-title" to="/">
           <h5>Homemade italian pasta</h5>
         </NavLink>
-        <div class="ratings">
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
+        <div className="ratings">
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star" aria-hidden="true"></i>
+          <i className="fa fa-star-o" aria-hidden="true"></i>
         </div>
         <NavLink className="recipe-content-comments" to="/">2 Comments</NavLink>
       </div>

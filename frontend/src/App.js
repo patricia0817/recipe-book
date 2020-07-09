@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import AddRecipe from './components/AddRecipe'
 import ViewRecipe from './components/ViewRecipe'
 import AllRecipes from './components/AllRecipes'
+import ViewAllCategories from './components/ViewAllCategories'
+import Profile from './components/Profile';
 
 import Axios from 'axios'
 Axios.defaults.baseURL = 'http://localhost:3000'
@@ -55,6 +57,12 @@ function App() {
             </Route>
             <Route path="/allRecipes">
               <AllRecipes />
+            </Route>
+            <Route path="/viewAllCategories">
+              <ViewAllCategories />
+            </Route>
+            <Route path="/myProfile">
+              <Profile />
             </Route>
           </Switch>
           <Footer />

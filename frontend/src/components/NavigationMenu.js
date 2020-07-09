@@ -6,6 +6,10 @@ import StateContext from '../StateContext'
 function NavigationMenu( props ) {
   const appState = useContext( StateContext )
 
+  function handleViewCategories() {
+    props.history.push( '/viewAllCategories' )
+  }
+
   return (
     <div className={ `navigation-menu ${ !appState.loggedIn && "navigation-menu__logged-out" }` }>
       <Navbar fixed="top" bg="light" expand="lg">
@@ -16,7 +20,7 @@ function NavigationMenu( props ) {
           <Nav className="mr-auto">
             <NavLink to="/allrecipes" exact className="navbar-link" activeClassName="navbar-link__active">All Recipes</NavLink>
             <NavLink to="/favorites" className="navbar-link" activeClassName="navbar-link__active">Favorites</NavLink>
-            <Button variant="outline-success">View All Categories</Button>
+            <Button onClick={ handleViewCategories } variant="outline-success">View All Categories</Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
