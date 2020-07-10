@@ -18,7 +18,6 @@ function ViewRecipe( props ) {
         const response = await Axios( `/recipes/${ id }` )
         if ( response.data ) {
           setIsLoading( false )
-          console.log( response.data )
           setRecipe( response.data )
         }
       } catch ( e ) {
