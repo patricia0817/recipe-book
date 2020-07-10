@@ -1,8 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Carousel } from 'react-bootstrap'
+import Axios from 'axios'
 import HeroCard from './HeroCard'
 
-function Hero( props ) {
+function Hero() {
+  const [ recipes, setRecipes ] = useState( {} )
+
+  useEffect( () => {
+    async function fetchData() {
+      const response = await Axios.get( '/recipes' );
+      setRecipes( response.data )
+    }
+    fetchData()
+  }, [] )
+
+  const get_random = function( list ) {
+    return list[ Math.floor( ( Math.random() * list.length ) ) ];
+  }
+
   return (
     <div className="px-3">
       <Carousel className="hero-container h-100">
@@ -13,7 +28,7 @@ function Hero( props ) {
             alt="First slide"
           />
           <Carousel.Caption>
-            <HeroCard />
+            <HeroCard recipe={ get_random( recipes ) } />
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -24,7 +39,7 @@ function Hero( props ) {
           />
 
           <Carousel.Caption>
-            <HeroCard />
+            <HeroCard recipe={ get_random( recipes ) } />
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -35,7 +50,7 @@ function Hero( props ) {
           />
 
           <Carousel.Caption>
-            <HeroCard />
+            <HeroCard recipe={ get_random( recipes ) } />
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
